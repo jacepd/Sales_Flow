@@ -42,8 +42,8 @@ class SignupPage extends StatelessWidget {
                   // 🖼 Logo image
                   Image.asset(
                     'assets/images/logo.jpg', // replace with your image path
-                    width: 120,
-                    height: 120,
+                    width: 150,
+                    height: 150,
                     fit: BoxFit.contain,
                   ),
 
@@ -222,42 +222,6 @@ class SignupPage extends StatelessWidget {
                         ),
                       ),
                     ],
-                  ),
-
-                  const SizedBox(height: 12),
-
-                  // Divider + note
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Expanded(
-                        child: Divider(
-                          thickness: 1,
-                          color: Color(0xFFC8D7E4),
-                          indent: 100,
-                          endIndent: 8,
-                        ),
-                      ),
-                      Text("or"),
-                      Expanded(
-                        child: Divider(
-                          thickness: 1,
-                          color: Color(0xFFC8D7E4),
-                          indent: 8,
-                          endIndent: 100,
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  const SizedBox(height: 12),
-
-                  const Text(
-                    "Sign up for both roles if needed",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Color(0xFF384E58),
-                    ),
                   ),
                 ],
               ),
