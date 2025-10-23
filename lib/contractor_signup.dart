@@ -33,7 +33,7 @@ class _ContractorSignupPageState extends State<ContractorSignupPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('All fields valid! Proceeding...')),
       );
-      // TODO: Navigate to next page
+      Navigator.pushReplacementNamed(context, '/contractor-home');
     }
   }
 

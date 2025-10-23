@@ -33,16 +33,14 @@ class _SalesmanSignupPageState extends State<SalesmanSignupPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('All fields valid! Proceeding...')),
       );
-      // TODO: Navigate to next page
+      Navigator.pushReplacementNamed(context, '/salesman-home');
     }
   }
 
   InputDecoration _inputDecoration(String label) {
     return InputDecoration(
       labelText: label,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
       errorBorder: OutlineInputBorder(
         borderSide: const BorderSide(color: Colors.red, width: 1.5),
         borderRadius: BorderRadius.circular(10),
@@ -122,7 +120,7 @@ class _SalesmanSignupPageState extends State<SalesmanSignupPage> {
               ),
               const SizedBox(height: 30),
               ElevatedButton(
-                onPressed: _submitForm,
+                onPressed: _submitForm, // make sure this is here
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(double.infinity, 50),
                   shape: RoundedRectangleBorder(
