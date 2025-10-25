@@ -10,117 +10,92 @@ class ContractorSignupPage extends StatefulWidget {
 class _ContractorSignupPageState extends State<ContractorSignupPage> {
   final _formKey = GlobalKey<FormState>();
 
-  final _firstNameController = TextEditingController();
-  final _lastNameController = TextEditingController();
-  final _phoneController = TextEditingController();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-  final _confirmPasswordController = TextEditingController();
+  final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
-  @override
-  void dispose() {
-    _firstNameController.dispose();
-    _lastNameController.dispose();
-    _phoneController.dispose();
-    _emailController.dispose();
-    _passwordController.dispose();
-    _confirmPasswordController.dispose();
-    super.dispose();
-  }
-
-  void _submitForm() {
-    if (_formKey.currentState!.validate()) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('All fields valid! Proceeding...')),
-      );
-      Navigator.pushReplacementNamed(context, '/contractor-home');
-    }
-  }
-
-  InputDecoration _inputDecoration(String label) {
-    return InputDecoration(
-      labelText: label,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      errorBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: Colors.red, width: 1.5),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      focusedErrorBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: Colors.red, width: 2),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.blue.shade400, width: 2),
-        borderRadius: BorderRadius.circular(10),
-      ),
+void _submitForm() {
+  if (_formKey.currentState!.validate()) {
+    Navigator.pushReplacementNamed(context, '/contractor-home');
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Please fill out all required fields')),
     );
   }
+}
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Contractor Signup')),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      backgroundColor: Colors.grey[100],
+      appBar: AppBar(
+        title: const Text('Contractor Sign Up'),
+        backgroundColor: Colors.blueAccent,
+        elevation: 0,
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(24),
         child: Form(
           key: _formKey,
-          child: ListView(
+          child: Column(
             children: [
-              const SizedBox(height: 20),
               TextFormField(
                 controller: _firstNameController,
-                decoration: _inputDecoration('First Name'),
+                decoration: const InputDecoration(labelText: 'First Name'),
                 validator: (value) =>
                     value!.isEmpty ? 'First name is required' : null,
               ),
               const SizedBox(height: 16),
               TextFormField(
                 controller: _lastNameController,
-                decoration: _inputDecoration('Last Name'),
+                decoration: const InputDecoration(labelText: 'Last Name'),
                 validator: (value) =>
                     value!.isEmpty ? 'Last name is required' : null,
               ),
               const SizedBox(height: 16),
               TextFormField(
                 controller: _phoneController,
+                decoration: const InputDecoration(labelText: 'Phone Number'),
                 keyboardType: TextInputType.phone,
-                decoration: _inputDecoration('Phone Number'),
                 validator: (value) =>
                     value!.isEmpty ? 'Phone number is required' : null,
               ),
               const SizedBox(height: 16),
               TextFormField(
                 controller: _emailController,
+                decoration: const InputDecoration(labelText: 'Email'),
                 keyboardType: TextInputType.emailAddress,
-                decoration: _inputDecoration('Email'),
                 validator: (value) =>
                     value!.isEmpty ? 'Email is required' : null,
               ),
               const SizedBox(height: 16),
               TextFormField(
                 controller: _passwordController,
+                decoration: const InputDecoration(labelText: 'Password'),
                 obscureText: true,
-                decoration: _inputDecoration('Password'),
                 validator: (value) =>
                     value!.isEmpty ? 'Password is required' : null,
               ),
               const SizedBox(height: 16),
               TextFormField(
                 controller: _confirmPasswordController,
+                decoration:
+                    const InputDecoration(labelText: 'Confirm Password'),
                 obscureText: true,
-                decoration: _inputDecoration('Confirm Password'),
                 validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please confirm your password';
-                  } else if (value != _passwordController.text) {
+                  if (value!.isEmpty) return 'Confirm your password';
+                  if (value != _passwordController.text) {
                     return 'Passwords do not match';
                   }
                   return null;
                 },
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: _submitForm,
                 style: ElevatedButton.styleFrom(

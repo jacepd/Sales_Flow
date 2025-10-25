@@ -29,13 +29,16 @@ class _SalesmanSignupPageState extends State<SalesmanSignupPage> {
   }
 
   void _submitForm() {
-    if (_formKey.currentState!.validate()) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('All fields valid! Proceeding...')),
-      );
-      Navigator.pushReplacementNamed(context, '/salesman-home');
-    }
+  if (_formKey.currentState!.validate()) {
+    Navigator.pushReplacementNamed(context, '/salesman-home');
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Please fill out all required fields')),
+    );
   }
+}
+
+
 
   InputDecoration _inputDecoration(String label) {
     return InputDecoration(
@@ -119,16 +122,11 @@ class _SalesmanSignupPageState extends State<SalesmanSignupPage> {
                 },
               ),
               const SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: _submitForm, // make sure this is here
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(double.infinity, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                child: const Text('Sign Up', style: TextStyle(fontSize: 18)),
-              ),
+ElevatedButton(
+  onPressed: _submitForm,
+  child: const Text('Sign Up'),
+),
+
             ],
           ),
         ),
