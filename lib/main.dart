@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'salesman_signup.dart';
 import 'contractor_signup.dart';
+import 'salesman_home_page.dart';
+import 'contractor_home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,8 +25,10 @@ class MyApp extends StatelessWidget {
       ),
       home: const SignupPage(),
       routes: {
-        '/salesman_signup': (context) => const SalesmanSignupPage(),
-        '/contractor_signup': (context) => const ContractorSignupPage(),
+        '/salesman-signup': (context) => const SalesmanSignupPage(),
+        '/contractor-signup': (context) => const ContractorSignupPage(),
+        '/salesman-home': (context) => const SalesmanHomePage(),
+        '/contractor-home': (context) => const ContractorHomePage(),
       },
     );
   }
@@ -45,17 +49,13 @@ class SignupPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // 🖼 Logo image
                   Image.asset(
-                    'assets/images/logo.jpg', // replace with your image path
+                    'assets/images/logo.jpg',
                     width: 150,
                     height: 150,
                     fit: BoxFit.contain,
                   ),
-
                   const SizedBox(height: 16),
-
-                  // 🏷 Title and subtitle
                   const Text(
                     'SalesFlow',
                     textAlign: TextAlign.center,
@@ -75,15 +75,14 @@ class SignupPage extends StatelessWidget {
                       height: 1.4,
                     ),
                   ),
-
                   const SizedBox(height: 32),
 
+                  // 👇 FIXED route name here
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, '/salesman_signup');
+                      Navigator.pushNamed(context, '/salesman-signup');
                     },
                     child: Container(
-                      // 🧍 Salesman button
                       width: double.infinity,
                       height: 120,
                       decoration: BoxDecoration(
@@ -147,18 +146,18 @@ class SignupPage extends StatelessWidget {
 
                   const SizedBox(height: 16),
 
+                  // 👇 FIXED route name here
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, '/contractor_signup');
+                      Navigator.pushNamed(context, '/contractor-signup');
                     },
                     child: Container(
-                      // 🛠 Contractor button
                       width: double.infinity,
                       height: 120,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: Color(0xFFC8D7E4), width: 2),
+                        border: Border.all(color: const Color(0xFFC8D7E4), width: 2),
                         boxShadow: const [
                           BoxShadow(
                             blurRadius: 8,
@@ -216,8 +215,6 @@ class SignupPage extends StatelessWidget {
                   ),
 
                   const SizedBox(height: 32),
-
-                  // 🔗 Sign-in text
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
