@@ -3,10 +3,19 @@ import 'salesman_signup.dart';
 import 'contractor_signup.dart';
 import 'salesman_home_page.dart';
 import 'contractor_home_page.dart';
+import 'new_sale_page.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -29,6 +38,7 @@ class MyApp extends StatelessWidget {
         '/contractor-signup': (context) => const ContractorSignupPage(),
         '/salesman-home': (context) => const SalesmanHomePage(),
         '/contractor-home': (context) => const ContractorHomePage(),
+        '/new-sale': (context) => const NewSalePage(),
       },
     );
   }

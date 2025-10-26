@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1099342614751",
+    "project_id": "sales-flow-62ec6",
+    "storage_bucket": "sales-flow-62ec6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1099342614751:android:701975e1897f3f4649996a",
+        "android_client_info": {
+          "package_name": "com.example.sales_flow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJQEraZ5T7EUWrWzq1bUxzN_T0EQQX-mo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

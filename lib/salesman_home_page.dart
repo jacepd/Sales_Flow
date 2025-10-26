@@ -46,44 +46,46 @@ class SalesmanHomePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Here you can manage leads, track your performance, and view assigned jobs.',
+                  'Manage your sales, track performance, and view assigned jobs.',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 15, color: Color(0xFF384E58)),
                 ),
                 const SizedBox(height: 32),
+
+                // 🆕 New Sale Button
                 ElevatedButton.icon(
                   onPressed: () {
-                    // TODO: Add navigation to Leads Page
+                    Navigator.pushNamed(context, '/new-sale');
                   },
-                  icon: const Icon(Icons.person_add_alt_1_outlined),
-                  label: const Text('View Leads'),
+                  icon: const Icon(Icons.add_shopping_cart_rounded),
+                  label: const Text('New Sale'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF4B986C),
                     foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 14, horizontal: 24),
+                    minimumSize: const Size(double.infinity, 50),
+                    textStyle: const TextStyle(fontSize: 18),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
                 ),
-                const SizedBox(height: 16),
+
+                const SizedBox(height: 24),
                 ElevatedButton.icon(
-                  onPressed: () {
-                    // TODO: Add navigation to Sales Analytics
-                  },
+                  onPressed: () {},
                   icon: const Icon(Icons.bar_chart_outlined),
                   label: const Text('View Performance'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF4B986C),
                     foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 14, horizontal: 24),
+                    minimumSize: const Size(double.infinity, 50),
+                    textStyle: const TextStyle(fontSize: 18),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
                 ),
+
                 const SizedBox(height: 16),
                 TextButton(
                   onPressed: () {
