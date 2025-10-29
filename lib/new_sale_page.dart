@@ -15,6 +15,8 @@ class _NewSalePageState extends State<NewSalePage> {
   final _priceController = TextEditingController();
   final _notesController = TextEditingController();
 
+  int test = 0;
+
   Future<void> _submitSale() async {
     if (_formKey.currentState!.validate()) {
       try {
